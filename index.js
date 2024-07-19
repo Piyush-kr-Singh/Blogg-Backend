@@ -8,7 +8,14 @@ const connectDb = require('./utils/db');
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+const corsOptions = {
+    origin: "*", // Allow requests from any origin
+    methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use('/api/blogs', blogRoutes);
