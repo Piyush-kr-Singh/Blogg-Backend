@@ -18,6 +18,11 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+app.use('/', (req,res)=>
+{
+    res.send("Hello World")
+})
+
 app.use('/api/blogs', blogRoutes);
 
 connectDb()
